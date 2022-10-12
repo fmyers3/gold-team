@@ -1,8 +1,4 @@
 import boto3
-aws_resource=boto3.resource("s3")
-bucket=aws_resource.Bucket("fall-s3")
-response = bucket.create(
-     ACL='private',
-     )
-     
-print(response)
+resource=boto3.resource("s3")
+for bucket in resource.buckets.all():
+    print(bucket.name)
